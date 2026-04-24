@@ -1,0 +1,27 @@
+import { GalleryVerticalEnd } from "lucide-react"
+import { ModeToggle } from "../Theme/mode-toggle"
+import { SignupForm } from "./signup-form"
+import { Link } from "react-router-dom"
+
+const SignupPage = () => {
+    return (
+        <>
+        <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
+            <div>
+            <ModeToggle/>
+            </div>
+            <div className="flex w-full max-w-sm flex-col gap-6">
+            <Link to="#" className="flex items-center gap-2 self-center font-medium">
+                <div className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
+                <GalleryVerticalEnd className="size-4" />
+                </div>
+                Todo Forge
+            </Link>
+            <SignupForm />
+            </div>
+        </div>
+        </>
+    )
+}
+
+export default SignupPage
