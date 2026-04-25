@@ -1,10 +1,10 @@
-import React from 'react'
 import { GalleryVerticalEnd } from 'lucide-react'
 import { ModeToggle } from "./Theme/mode-toggle"
 import { Button } from './ui/button'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-background border-b ontainer flex h-16 items-center justify-between px-5 ">
 
@@ -14,10 +14,10 @@ const Navbar = () => {
             </h1>
         <div className="flex items-center">
                 <ModeToggle/>
-            <Button variant="destructive" size="lg" className="ml-4">
-            <Link to="/">
+            <Button
+            onClick={() => navigate("/")} 
+            variant="destructive" size="lg" className="ml-4">
               Logout
-            </Link>
             </Button>
         </div>
     </div>

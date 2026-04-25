@@ -2,9 +2,10 @@
 import { Button } from './ui/button'
 import { ModeToggle } from './Theme/mode-toggle'
 import { GalleryVerticalEnd } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
+    const navigate = useNavigate();
   return (
 <> 
         <div className='p-3'>
@@ -17,10 +18,10 @@ const HomePage = () => {
             Your ultimate task management tool. Stay organized and boost your productivity with our intuitive interface and powerful features. Sign up now to start forging your path to success!
             
              </p>
-        <Button className='p-5 m-8'>
-            <Link to="signup">
+        <Button 
+              onClick={() => navigate("/signup")} 
+        className='p-5 m-8'>
                 Get started
-            </Link> 
         </Button>
 
     </div>

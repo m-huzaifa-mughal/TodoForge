@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { cn } from "../../lib/utils"
 import { Button } from "../ui/button"
+import { useForm , type SubmitHandler } from "react-hook-form";
 import {
   Card,
   CardContent,
@@ -13,14 +14,27 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLabel,
-  FieldSeparator,
 } from "../ui/field"
 import { Input } from "../ui/input"
+
+type FormInputs = {  
+  email: string;
+  password: string;
+}
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+
+  const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm<FormInputs>({
+    });
+      const onSubmit: SubmitHandler<FormInputs> = (data) => console.log(data);
+  
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -31,7 +45,7 @@ Enter your email below to Login your account
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -39,14 +53,30 @@ Enter your email below to Login your account
                   id="email"
                   type="email"
                   placeholder="m@example.com"
-                  required
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Invalid email address",
+                    },
+                  })}
                 />
+                {errors.email && (
+                  <span className="text-xs text-destructive">
+                    {errors.email.message}  
+                  </span>
+                )}
               </Field>
               <Field>
                 <div className="flex items-center">
                   <FieldLabel htmlFor="password">Password</FieldLabel>
                 </div>
-                <Input id="password" type="password" required />
+                <Input id="password" type="password" {...register("password", { required: "Password is required" })} />
+                {errors.password && (
+                  <span className="text-xs text-destructive">
+                    {errors.password.message}
+                  </span>
+                )}
               </Field>
               <Field>
                 <Button type="submit">Login</Button>
