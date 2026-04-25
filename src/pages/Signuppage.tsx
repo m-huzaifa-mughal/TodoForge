@@ -1,6 +1,6 @@
 import { GalleryVerticalEnd } from "lucide-react"
-import { ModeToggle } from "../Theme/mode-toggle"
-import { SignupForm } from "./signup-form"
+import { ModeToggle } from "../components/layouts/mode-toggle"
+import { SignupForm } from "../components/Forms/signup-form"
 import { Link } from "react-router-dom"
 
 const SignupPage = () => {

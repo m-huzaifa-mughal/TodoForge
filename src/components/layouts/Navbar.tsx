@@ -1,6 +1,6 @@
 import { GalleryVerticalEnd } from 'lucide-react'
-import { ModeToggle } from "./Theme/mode-toggle"
-import { Button } from './ui/button'
+import { ModeToggle } from "./mode-toggle"
+import { Button } from '../ui/button'
 import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {

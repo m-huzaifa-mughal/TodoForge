@@ -1,11 +1,11 @@
 
 import { Route, Routes } from "react-router-dom"
-import { ThemeProvider } from "./components/Theme/theme-provider"
-import LoginPage from "./components/Forms/designed-login"
-import SignupPage from "./components/Forms/designed-signup"
-import HomePage from "./components/homePage"
-import Dashboard  from "./components/Dashboard"
-import NotFound from "./components/NotFound"
+import { ThemeProvider } from "./Context/theme-provider"
+import LoginPage from "./pages/Loginpage"
+import SignupPage from "./pages/Signuppage"
+import HomePage from "./pages/HomePage"
+import Dashboard  from "./pages/Dashboard"
+import NotFound from "./pages/NotFound"
 
 
 

@@ -1,6 +1,6 @@
 
-import { Button } from './ui/button'
-import { ModeToggle } from './Theme/mode-toggle'
+import { Button } from '../components/ui/button'
+import { ModeToggle } from '../components/layouts/mode-toggle'
 import { GalleryVerticalEnd } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
