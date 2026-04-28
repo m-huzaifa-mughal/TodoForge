@@ -6,8 +6,8 @@ const Dashboard = () => {
   return (
  <>
     <div><Navbar /></div>
-    <div className='flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10'><DialogDemo /></div>
-     <div></div>
+    <div className='flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10'><DialoggitDemo /></div>
+     <div></div>z
 </>
   )
 }
