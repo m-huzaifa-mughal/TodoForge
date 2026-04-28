@@ -13,39 +13,12 @@ import {
 import { Field, FieldGroup } from "../ui/field"
 import { Input } from "../ui/input"
 import { Label } from "../ui/label"
-import { useState } from "react"
 
-type Task = {
-  title: string
-  description: string
-}
 
-export function DialogDemo() {
-  const [saveBtn, setsaveBtn] = useState<string>("")
-
-  const [tasks, setTasks] = useState<Task[]>([])
-  const [title, setTitle] = useState<string>("")
-  const [description, setDescription] = useState<string>("")
-
-  function handleSave(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-
-    const newTask: Task = {
-      title,
-      description,
-    }
-
-    setTasks((prevTasks) => [...prevTasks, newTask])
-
-    console.log("Saved Tasks:", [...tasks, newTask])
-
-    setTitle("")
-    setDescription("")
-  }
-
+export function TodoAdd() {
   return (
     <Dialog>
-      <form onSubmit={handleSave}>
+      <form>
         <DialogTrigger asChild>
           <Button variant="outline">
             Create Todo <Plus />
@@ -67,10 +40,6 @@ export function DialogDemo() {
                 id="name-1"
                 name="name"
                 placeholder="Enter Title"
-                value={title}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setTitle(e.target.value)
-                }
               />
             </Field>
 
@@ -80,10 +49,6 @@ export function DialogDemo() {
                 id="username-1"
                 name="username"
                 placeholder="Enter Description"
-                value={description}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setDescription(e.target.value)
-                }
               />
             </Field>
           </FieldGroup>
