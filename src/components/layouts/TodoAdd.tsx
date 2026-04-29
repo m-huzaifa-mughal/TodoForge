@@ -25,11 +25,15 @@ export function TodoAdd() {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="sm:max-w-sm">
+        <DialogContent
+          className="sm:max-w-sm"
+          onInteractOutside={(event) => event.preventDefault()}
+          onEscapeKeyDown={(event) => event.preventDefault()}
+        >
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle>Create Todo</DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re done.
+              Create a new todo, by adding a title and description
             </DialogDescription>
           </DialogHeader>
 
