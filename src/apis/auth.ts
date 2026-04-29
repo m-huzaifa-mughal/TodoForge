@@ -3,7 +3,7 @@ import {api} from './axios'
 
 export const registerUser = async (data : RegisterPayLoad)=>{
     const response = await api.post<AuthResponse>
-    ('/users/register',data)
+    ('/users/register', data)
     return response.data
 }
 export const loginUser = async (data : LoginPayLoad)=>{

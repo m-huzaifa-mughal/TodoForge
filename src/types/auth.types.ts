@@ -1,5 +1,5 @@
 export type RegisterPayLoad ={
-    fullName : string
+    username : string
     email : string
     password : string
 

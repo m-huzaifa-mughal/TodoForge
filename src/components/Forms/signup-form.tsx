@@ -19,14 +19,18 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
         const {register : signUp} =useAuth()
               const navigate = useNavigate()
       
-              const onSubmit = async (data: RegisterPayLoad) => {
-                const response = await signUp(data)
-      
-                if(response?.data?.accessToken)
-                {
-                  navigate("/dashboard")
-                }
-              }
+          const onSubmit = async (data: RegisterPayLoad) => {
+            const response = await signUp({
+              username : data.username.toLowerCase().replace(' ', ''),
+              email : data.email,
+              password : data.password
+            })
+  
+            if(response?.data?.accessToken)
+            {
+              navigate("/dashboard")
+            }
+          }
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -39,14 +43,14 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <FieldGroup className="flex flex-col gap-4">
               <Field>
-                <FieldLabel htmlFor="fullName">Full Name</FieldLabel>
+                <FieldLabel htmlFor="username">User Name</FieldLabel>
                 <Input
-                  id="fullName"
+                  id="username"
                   type="text"
                   placeholder="John Doe"
-                  {...register("fullName", { required: "Name is required" })}
+                  {...register("username", { required: "User Name is required" })}
                 />
-                {errors.fullName && <span className="text-xs text-destructive">{errors.fullName.message}</span>}
+                {errors.username && <span className="text-xs text-destructive">{errors.username.message}</span>}
               </Field>
 
               <Field>
