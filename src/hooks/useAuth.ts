@@ -30,7 +30,7 @@ export const useAuth=()=>{
         try{
             const response = await registerUser(data)
 
-            if (response?.data?.accessToken){
+            if (response?.statusCode){
                 setToken(response.data.accessToken)
             }
             return response

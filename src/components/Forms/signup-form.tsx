@@ -21,14 +21,13 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
       
           const onSubmit = async (data: RegisterPayLoad) => {
             const response = await signUp({
-              username : data.username.toLowerCase().replace(' ', ''),
-              email : data.email,
-              password : data.password
-            })
-  
-            if(response?.data?.accessToken)
-            {
-              navigate("/dashboard")
+              username: data.username.toLowerCase().replace(/\s+/g, ""),
+              email: data.email,
+              password: data.password,
+            });
+
+            if (response?.statusCode === 200 || response?.success) {
+              navigate("/dashboard");
             }
           }
 
