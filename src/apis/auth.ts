@@ -7,16 +7,9 @@ export const registerUser = async (data : RegisterPayLoad)=>{
     return response.data
 }
 export const loginUser = async (data : LoginPayLoad)=>{
-
-    try{
         const response = await api.post<AuthResponse>
         ('/users/login',data)
         return response.data
-    }
-    catch (error) {
-    console.error("Login failed:", error.response?.status === 404 ? "Endpoint not found" : error.message);
-    throw error;
-    }
 }
 
 
