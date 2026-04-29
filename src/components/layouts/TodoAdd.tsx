@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react"
 import { Button } from "../ui/button"
 import {
   Dialog, 
@@ -19,7 +20,7 @@ export function DialogDemo() {
     <Dialog>
       <form>
         <DialogTrigger asChild>
-          <Button variant="outline">Create Todo <Add /></Button>
+          <Button variant="outline">Create Todo <Plus /></Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-sm">
           <DialogHeader>

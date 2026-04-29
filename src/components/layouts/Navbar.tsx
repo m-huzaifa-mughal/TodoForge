@@ -17,7 +17,7 @@ const Navbar = () => {
             <Button
             onClick={logout}
             variant="destructive" size="lg" className="ml-4">
-              Logout {user?.firstName}
+              Logout {user?.username}
             </Button>
         </div>
     </div>

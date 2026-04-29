@@ -32,16 +32,27 @@ export function LoginForm({
     } = useForm<LoginPayLoad>({
     });
 
+    const Token_Key = "token"
 
         const {login} =useAuth()
+            
         const navigate = useNavigate()
 
         const onSubmit= async (data: LoginPayLoad) => {
           const response = await login(data)
 
+          if(Token_Key != null)
+          {
+            navigate("/login")
+          }
+          if(response?.statusCode === 200 || response?.success)
+          {
+            navigate("/dashboard")
+          }
           if(response?.data?.accessToken)
           {
-            navigate("dashboard")
+             localStorage.setItem(`${Token_Key}`, response.data.accessToken)
+            navigate("/dashboard")
           }
         }
     

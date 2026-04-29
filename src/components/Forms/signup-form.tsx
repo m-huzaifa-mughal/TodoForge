@@ -26,7 +26,8 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
               password: data.password,
             });
 
-            if (response?.statusCode === 200 || response?.success) {
+              if (response?.statusCode === 200 || response?.success ) {
+
               navigate("/dashboard");
             }
           }

@@ -12,11 +12,13 @@ export type LoginPayLoad ={
 }
 
 export type AuthResponse ={
+    statusCode: number
     success : boolean
     message : string
     data ?: {
         accessToken : string
         refreshToken : string
+        statusCode : number
     }
 
 }
